@@ -81,7 +81,7 @@ public class Juego {
         panelPresentacion.setBackground(Color.red);
         
         iniciar = new JButton("Iniciar");
-        iniciar.setBounds(200, 600, 300, 30);
+        iniciar.setBounds(200, 573, 300, 30);
         iniciar.setVisible(true);
         iniciar.setBackground(Color.BLACK);
         iniciar.setForeground(Color.YELLOW);
@@ -89,7 +89,7 @@ public class Juego {
         
         fondoPresentacion = new JLabel();
         fondoPresentacion.setBounds(0, 0, ventana.getWidth(), ventana.getHeight());
-        imagenFondoPres = new ImageIcon("imagenes/fondoPresentacion.png");
+        imagenFondoPres = new ImageIcon("imagenes/Principal.jpg");
         imagenFondoPres = new ImageIcon(imagenFondoPres.getImage().getScaledInstance(ventana.getWidth(), ventana.getHeight(), Image.SCALE_DEFAULT));
         fondoPresentacion.setIcon(imagenFondoPres);
         fondoPresentacion.setVisible(true);
@@ -151,7 +151,7 @@ public class Juego {
         
         fondoJuego = new JLabel();
         fondoJuego.setBounds(0, 0, ventana.getWidth(), ventana.getHeight());
-        imagenFondoJuego = new ImageIcon("imagenes/fondoJuego.png");
+        imagenFondoJuego = new ImageIcon("imagenes/Secundario.jpg");
         imagenFondoJuego = new ImageIcon(imagenFondoMenu.getImage().getScaledInstance(ventana.getWidth(), ventana.getHeight(), Image.SCALE_DEFAULT));
         fondoJuego.setIcon(imagenFondoJuego);
         fondoJuego.setVisible(true);
@@ -159,7 +159,7 @@ public class Juego {
         
         for (int i = 0; i < mat.length; i++) {
                 for (int j = 0; j < mat.length; j++) {
-                    matriz[i][j].setIcon(new ImageIcon("imagenes/"+mat[i][j]+".png"));
+                    matriz[i][j].setIcon(new ImageIcon("imagenes/"+mat[i][j]+".jpg"));
                     matriz[i][j].setBounds(120+(j*30), 120+(i*30), 30, 30);
                     matriz[i][j].setVisible(true);
                     panelJuego.add(matriz[i][j],0);
