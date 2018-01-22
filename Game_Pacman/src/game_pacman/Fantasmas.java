@@ -16,6 +16,7 @@ public class Fantasmas {
     int direccion;
     int mx;
     int my;
+    Juego Juego;
     
     public Fantasmas( int x, int y ){
         aleatorio = new Random();
@@ -30,7 +31,7 @@ public class Fantasmas {
     
     public void MovimientoFantasma(){
     
-        timer = new Timer (200, new ActionListener () 
+        timer = new Timer (25, new ActionListener () 
         { 
             public void actionPerformed(ActionEvent e) 
             { 

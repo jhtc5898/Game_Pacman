@@ -1,6 +1,8 @@
 package game_pacman;
 
+import game_pacman.Controlador.EventoJuego;
 import java.awt.Color;
+import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -11,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -21,7 +24,7 @@ import javax.swing.Timer;
 public class Juego {
     
     //atributos
-    static JFrame ventana;
+     JFrame ventana;
     
     //presentacion
     JPanel panelPresentacion;
@@ -32,7 +35,10 @@ public class Juego {
     //menu
     JPanel panelMenu;
     JButton botones[];
-    JLabel fondoMenu;
+    JButton btn1;
+    JButton btn2;
+
+       JLabel fondoMenu;
     ImageIcon imagenFondoMenu;
       
     //juego
@@ -44,7 +50,6 @@ public class Juego {
     static JLabel matriz [][];
     int px;
     int py;
-    String jugador;
     JLabel nombre;
     int puntos;
     JLabel records;
@@ -60,7 +65,9 @@ public class Juego {
     Fantasmas fantasma3;
     static int matAux[][];
     Tableros Table = new Tableros();
-   
+    //ComboBox
+    JComboBox comboListar;
+    int nivel;
   
     
     
@@ -71,7 +78,6 @@ public class Juego {
         ventana.setLayout(null);
         ventana.setLocationRelativeTo(null);
         ventana.setResizable(false);
-       // this.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("imagenes/logo.png")));
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         panelPresentacion = new JPanel();
@@ -80,13 +86,8 @@ public class Juego {
         panelPresentacion.setVisible(true);
         panelPresentacion.setBackground(Color.red);
         
-        iniciar = new JButton("Iniciar");
-        iniciar.setBounds(200, 573, 300, 30);
-        iniciar.setVisible(true);
-        iniciar.setBackground(Color.BLACK);
-        iniciar.setForeground(Color.YELLOW);
-        panelPresentacion.add(iniciar,0);
         
+         
         fondoPresentacion = new JLabel();
         fondoPresentacion.setBounds(0, 0, ventana.getWidth(), ventana.getHeight());
         imagenFondoPres = new ImageIcon("imagenes/Principal.jpg");
@@ -95,55 +96,100 @@ public class Juego {
         fondoPresentacion.setVisible(true);
         panelPresentacion.add(fondoPresentacion,0);
         
-        //menu
-        botones = new JButton[5];
-        for (int i = 0; i < botones.length; i++) {
-            botones[i] = new JButton();
-        }
-
-        iniciar.addMouseListener(new MouseAdapter() {
-
-            public void mousePressed(MouseEvent e){
-                 System.out.println("iniciar");
-                 menu();
-                 eventoMenu();
-            }
+        iniciar = new JButton("Iniciar");
+        iniciar.setBounds(200, 500, 300, 30);
+        iniciar.setBackground(Color.BLACK);
+        iniciar.setForeground(Color.YELLOW);
+         iniciar.setVisible(true);
+        iniciar.addActionListener(new EventoJuego(this));
+       panelPresentacion.add(iniciar,0);
         
-        });
+       comboListar = new JComboBox();
+        comboListar.addItem("Nivel 1");
+        comboListar.addItem("Nivel 2");
+        comboListar.addItem("Nivel 3");
+        comboListar.setSize(300, 30);
+        comboListar.setLocation(200, 550);
+        comboListar.setBackground (Color.BLACK);
+        comboListar.setForeground (Color.white);
+        comboListar.addActionListener(new ActionListener(){
+
+      public void actionPerformed(ActionEvent ae){
+
+            JOptionPane.showMessageDialog(null, "Dato Guardado");
+            if(comboListar.getSelectedIndex()==0)
+                      {
+                          System.out.println("Nivel 1");
+                          mat = new int[15][15];
+                           mat = Table.tablero(1);
+                          //juego.mat=Table.tablero(nivel);
+                          //juego.pintarMatriz();
+
+                      }
+                      if(comboListar.getSelectedIndex()==1)
+                      {
+                          System.out.println("Nivel 2");
+                          mat = new int[15][15];
+                           mat = Table.tablero(2);
+
+                      }
+                      if(comboListar.getSelectedIndex()==2)
+                      {
+                          System.out.println("Nivel 3 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(3);
+                      }
+
+      }
+
+});
+
+        panelPresentacion.add(comboListar,0);
         
+        
+       
+        
+       
         //juego
         //Llamamos a nuestra Clase Tablero 
 
          mat = new int[15][15];
-         
-         mat = Table.tablero(4);
+         mat = Table.tablero(1);
          //matAux = tablero(1);
          matriz = new JLabel[15][15];
          matAux = new int[15][15];
-         for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < mat.length; j++) {
+         for (int i = 0; i < mat.length; i++) 
+         {
+            for (int j = 0; j < mat.length; j++) 
+            {
                 matriz[i][j] = new JLabel();
                 matAux[i][j] = mat[i][j];
             }
             
         }
+         
         px = 1;
         py = 1;
-        mat[px  ][py] = 3;
+        mat[px][py] = 3;
 
         abajo = 0;
         arriba = 0;
         izq = 0;
         der = 0;
-
+       
         ventana.add(panelPresentacion);
 
         ventana.setVisible(true);
         
     
     }//fin constructor
+     
+    public void EleccionTablero(int i)
+    {
+        System.out.println("Eleccion"+i);
+    }
     
-    public void jugar(){
+    public void jugar(String jugador){
         panelMenu.setVisible(false);
         panelJuego = new JPanel();
         panelJuego.setLayout(null);
@@ -169,7 +215,7 @@ public class Juego {
         
         nombre = new JLabel("JUGADOR: "+ jugador);
         nombre.setBounds(20, 20, 150, 30);
-        nombre.setForeground(Color.white);
+        nombre.setForeground(Color.black);
         nombre.setVisible(true);
         panelJuego.add(nombre,0);
         
@@ -177,7 +223,7 @@ public class Juego {
         records = new JLabel("Puntos: "+puntos);
         records.setBounds(20, 40, 150, 30);
         records.setVisible(true);
-        records.setForeground(Color.white);
+        records.setForeground(Color.black);
         panelJuego.add(records,0);
         moverPacman();
         fantasma1 = new Fantasmas(12 ,13 ); 
@@ -187,7 +233,7 @@ public class Juego {
                
     }
     
-    public static void pintarMatriz(){
+    public static  void pintarMatriz(){
         for (int i = 0; i < mat.length; i++) {
                 for (int j = 0; j < mat.length; j++) {
                     matriz[i][j].setIcon(new ImageIcon("imagenes/"+mat[i][j]+".png"));
@@ -354,20 +400,7 @@ public class Juego {
     
     } 
     
-  
-    
-    
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    public void menu(){
+    public void menu()  {
         
         panelPresentacion.setVisible(false);
         panelMenu = new JPanel();
@@ -383,87 +416,61 @@ public class Juego {
         fondoMenu.setVisible(true);
         panelMenu.add(fondoMenu,0);
         
-        botones[0].setText("JUGAR");
-        botones[1].setText("CREAR TABLERO");
-        botones[2].setText("RECORDS");
-        botones[3].setText("CARGAR TABLERO");
-        botones[4].setText("SALIR");
+        btn1 = new JButton("Jugar");
+        btn1.setBounds(0, 0, 100, 70);
+        btn1.setVisible(true);      
+        btn1.addActionListener(new EventoJuego(this));
         
-        for (int i = 0; i < botones.length; i++) {
-            botones[i].setBounds(ventana.getWidth()-(200+50), (i+1)*50, 200, 40);
-            botones[i].setVisible(true);
-            botones[i].setBackground(Color.black);
-            botones[i].setForeground(Color.YELLOW);
-            panelMenu.add(botones[i],0);
-        }
+         btn2 = new JButton("Records");
+        btn2.setBounds(0, 200, 100, 70);
+        btn2.setVisible(true);     
+        btn2.addActionListener(new EventoJuego(this));
         
+        panelMenu.add(btn2);
+        panelMenu.add(btn1);
+        
+        
+
+        
+         
         ventana.add(panelMenu);
         
         
     
     }//fin del menu
-    
-    public void eventoMenu(){
-        
-        //boton jugar
-        botones[0].addMouseListener(new MouseAdapter() {
-
-            public void mousePressed(MouseEvent e){
-                 System.out.println("jugar");
-                 //pedir nombre
-                jugador = JOptionPane.showInputDialog(ventana, "Nombre del jugador", "Escribe aqui" );     
-                while(jugador == null || jugador.compareTo("Escribe aqui")==0 || jugador.compareTo("")==0){
-                    jugador = JOptionPane.showInputDialog(ventana, "Debes ingresar usuario","Escribe aqui");
-                }
-                 jugar();
-                 
-               
-                
-            }
-        
-        });
-        
-        //boton crear tablero
-        botones[1].addMouseListener(new MouseAdapter() {
-
-            public void mousePressed(MouseEvent e){
-                 System.out.println("crear tablero");
    
-            }
-        
-        });
-        
-        //boton records
-        botones[2].addMouseListener(new MouseAdapter() {
 
-            public void mousePressed(MouseEvent e){
-                 System.out.println("records");
-                 
-            }
-        
-        });
-        
-        //cargar tablero
-        botones[3].addMouseListener(new MouseAdapter() {
+     public JButton getBtn1() {
+        return btn1;
+    }
 
-            public void mousePressed(MouseEvent e){
-                 System.out.println("cargar tablero");
-                
-                 
-            }
-        
-        });
-        
-        //salir
-        botones[4].addMouseListener(new MouseAdapter() {
+    public void setBtn1(JButton btn1) {
+        this.btn1 = btn1;
+    }
 
-            public void mousePressed(MouseEvent e){
-                 System.out.println("SALIR");
-                 System.exit(0);
-            }
-        
-        });
-        
+    public JButton getBtn2() {
+        return btn2;
+    }
+
+    public void setBtn2(JButton btn2) {
+        this.btn2 = btn2;
+    }
+
+    public JButton getIniciar() {
+        return iniciar;
+    }
+
+    public void setIniciar(JButton iniciar) {
+        this.iniciar = iniciar;
+    }
+
+    public JComboBox getComboListar() {
+        return comboListar;
+    }
+
+    public void setComboListar(JComboBox comboListar) {
+        this.comboListar = comboListar;
     }
     
+
 }
