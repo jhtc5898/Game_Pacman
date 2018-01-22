@@ -8,13 +8,15 @@ package game_pacman.Controlador;
 import game_pacman.Juego;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author johne
  */
-public class EventoJuego implements ActionListener
+public class EventoJuego implements ActionListener 
 {
 private Juego juego;
 
@@ -30,9 +32,12 @@ private Juego juego;
              System.out.println("jugar");
                  //pedir nombre
               String jugador = JOptionPane.showInputDialog(null, "Nombre del jugador", "Escribe aqui" );     
-                while(jugador == null || jugador.compareTo("Escribe aqui")==0 || jugador.compareTo("")==0){
-                    jugador = JOptionPane.showInputDialog(null, "Debes ingresar usuario","Escribe aqui");
-                }
+               if (jugador.equals("Escribe aqui")|| jugador.equals(""))
+               {
+                 jugador= "null"  ;
+               }
+              
+                
                  juego.jugar(jugador);
                  
         }
@@ -43,16 +48,7 @@ private Juego juego;
           if (e.getSource().equals(juego.getIniciar()))
           {
                juego.menu();
-          }
-          
-           if (e.getSource().equals(juego.getComboListar()))
-                  {
-                   
-                           
-                      
-           
-        
-               
-    }
+          }   
     
-}}
+}
+}

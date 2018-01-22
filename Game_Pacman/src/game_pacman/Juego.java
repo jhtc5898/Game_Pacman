@@ -1,5 +1,6 @@
 package game_pacman;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import game_pacman.Controlador.EventoJuego;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -89,15 +90,15 @@ public class Juego {
         
          
         fondoPresentacion = new JLabel();
-        fondoPresentacion.setBounds(0, 0, ventana.getWidth(), ventana.getHeight());
+        fondoPresentacion.setBounds(0, -80, 700,800);
         imagenFondoPres = new ImageIcon("imagenes/Principal.jpg");
-        imagenFondoPres = new ImageIcon(imagenFondoPres.getImage().getScaledInstance(ventana.getWidth(), ventana.getHeight(), Image.SCALE_DEFAULT));
+        imagenFondoPres = new ImageIcon(imagenFondoPres.getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT));
         fondoPresentacion.setIcon(imagenFondoPres);
         fondoPresentacion.setVisible(true);
         panelPresentacion.add(fondoPresentacion,0);
         
         iniciar = new JButton("Iniciar");
-        iniciar.setBounds(200, 500, 300, 30);
+        iniciar.setBounds(200, 510, 300, 30);
         iniciar.setBackground(Color.BLACK);
         iniciar.setForeground(Color.YELLOW);
          iniciar.setVisible(true);
@@ -116,9 +117,9 @@ public class Juego {
         comboListar.addItem("Nivel 9");
         comboListar.addItem("Nivel 10");
         comboListar.setSize(300, 30);
-        comboListar.setLocation(200, 550);
+        comboListar.setLocation(200, 545);
         comboListar.setBackground (Color.BLACK);
-        comboListar.setForeground (Color.white);
+        comboListar.setForeground (Color.yellow);
         comboListar.addActionListener(new ActionListener(){
 
       public void actionPerformed(ActionEvent ae){
@@ -230,13 +231,12 @@ public class Juego {
 
         ventana.setVisible(true);
         
+        
+        
     
     }//fin constructor
      
-    public void EleccionTablero(int i)
-    {
-        System.out.println("Eleccion"+i);
-    }
+
     
     public void jugar(String jugador){
         panelMenu.setVisible(false);
@@ -297,7 +297,7 @@ public class Juego {
     public void moverPacman(){
         
         
-        timer = new Timer (200, new ActionListener () 
+        timer = new Timer (1, new ActionListener () 
         { 
             public void actionPerformed(ActionEvent e) 
             { 
@@ -306,6 +306,7 @@ public class Juego {
                         puntos = puntos + 10;
                         records.setText("Puntos: "+puntos);
                     } 
+                     
                     mat[px][py] = 0;
                     matAux[px][py] = mat[px][py]; //esto es nuevo
                     py = py-1;
@@ -318,8 +319,9 @@ public class Juego {
                         puntos = puntos + 5;
                         records.setText("Puntos: "+puntos);
                     } 
+                    
                     mat[px][py] = 0;
-                    matAux[px][py] = mat[px][py]; //esto es nuevo
+                    matAux[px][py] = mat[px][py]; //esto
                     py = py+1;
                     mat[px][py] = 3;
                     pintarMatriz();
@@ -330,6 +332,7 @@ public class Juego {
                         puntos = puntos + 5;
                         records.setText("Puntos: "+puntos);
                     } 
+                     
                     mat[px][py] = 0;
                     matAux[px][py] = mat[px][py]; //esto es nuevo
                     px = px-1;
@@ -342,6 +345,7 @@ public class Juego {
                         puntos = puntos + 5;
                         records.setText("Puntos: "+puntos);
                     } 
+                     
                     mat[px][py] = 0;
                     matAux[px][py] = mat[px][py]; //esto es nuevo
                     px = px+1;
@@ -400,7 +404,7 @@ public class Juego {
             public void keyPressed(KeyEvent e) {
                 
                 if(e.getKeyCode() == KeyEvent.VK_UP){
-                    System.out.println("tecla hacia arriba");
+                   // System.out.println("tecla hacia arriba");
                     if(mat[px][py-1]==1 || mat[px][py-1]==0 ){
                         arriba = 1;
                         abajo = 0;
@@ -409,7 +413,7 @@ public class Juego {
                     }    
                 }
                 if(e.getKeyCode() == KeyEvent.VK_DOWN){
-                    System.out.println("tecla hacia abajo");
+                  //  System.out.println("tecla hacia abajo");
                     if(mat[px][py+1]==1 || mat[px][py+1]==0 ){ 
                         arriba = 0;
                         abajo = 1;
@@ -418,7 +422,7 @@ public class Juego {
                     }    
                 }
                 if(e.getKeyCode() == KeyEvent.VK_LEFT){
-                    System.out.println("tecla hacia izquierda");
+                  //  System.out.println("tecla hacia izquierda");
                     if(mat[px-1][py]==1 || mat[px-1][py]==0 ){
                         arriba = 0;
                         abajo = 0;
@@ -427,7 +431,7 @@ public class Juego {
                     }    
                 }
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-                    System.out.println("tecla hacia derecha");
+                  //  System.out.println("tecla hacia derecha");
                     if(mat[px+1][py]==1 || mat[px+1][py]==0 ){
                         arriba = 0;
                         abajo = 0;
@@ -484,9 +488,6 @@ public class Juego {
         panelMenu.add(btn2);
         panelMenu.add(btn1);
         
-        
-
-        
          
         ventana.add(panelMenu);
         
@@ -526,6 +527,8 @@ public class Juego {
     public void setComboListar(JComboBox comboListar) {
         this.comboListar = comboListar;
     }
+
+
     
 
 }

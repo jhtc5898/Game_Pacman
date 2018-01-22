@@ -31,7 +31,7 @@ public class Fantasmas {
     
     public void MovimientoFantasma(){
     
-        timer = new Timer (25, new ActionListener () 
+        timer = new Timer (1, new ActionListener () 
         { 
             public void actionPerformed(ActionEvent e) 
             { 
@@ -56,7 +56,7 @@ public class Fantasmas {
                 }
                 //derecha
                 if( direccion == 1 ){
-                    System.out.println("aqui" + direccion);
+                    //System.out.println("aqui" + direccion);
                     if(Juego.mat[fanx+1][fany] != 2 && (Juego.mat[fanx+1][fany] == 0 || Juego.mat[fanx+1][fany] == 1)){
                         Juego.mat[fanx][fany] = Juego.matAux[fanx][fany];
                         fanx +=1;
@@ -74,7 +74,7 @@ public class Fantasmas {
                 }
                 //arriba
                 if( fany > 0 && direccion == 2 ){
-                    System.out.println("aqui" + direccion);
+                   // System.out.println("aqui" + direccion);
                     if(Juego.mat[fanx][fany-1] != 2 && (Juego.mat[fanx][fany-1] == 0 || Juego.mat[fanx][fany-1] == 1)){
                         Juego.mat[fanx][fany] = Juego.matAux[fanx][fany];
                         fany -=1;
@@ -90,7 +90,7 @@ public class Fantasmas {
                 }
                 //abajo
                 if(  direccion == 3 ){
-                    System.out.println("aqui" + direccion);
+                   // System.out.println("aqui" + direccion);
                     if(Juego.mat[fanx][fany+1] != 2 &&(Juego.mat[fanx][fany+1] == 0 || Juego.mat[fanx][fany+1] == 1)){
                         Juego.mat[fanx][fany] = Juego.matAux[fanx][fany];
                         fany +=1;
@@ -104,10 +104,7 @@ public class Fantasmas {
                         direccion = aleatorio.nextInt(4); 
                     }
                 }
-                
-                
-                
-               
+  
         }});
         timer.start();
     
