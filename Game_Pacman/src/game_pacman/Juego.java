@@ -108,6 +108,8 @@ public class Juego {
         comboListar.addItem("Nivel 1");
         comboListar.addItem("Nivel 2");
         comboListar.addItem("Nivel 3");
+        comboListar.addItem("Nivel 4");
+        comboListar.addItem("Nivel 5");
         comboListar.setSize(300, 30);
         comboListar.setLocation(200, 550);
         comboListar.setBackground (Color.BLACK);
@@ -138,6 +140,18 @@ public class Juego {
                           System.out.println("Nivel 3 ");
                           mat = new int[15][15];
                            mat = Table.tablero(3);
+                      }
+                      if(comboListar.getSelectedIndex()==3)
+                      {
+                          System.out.println("Nivel 4 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(4);
+                      }
+                      if(comboListar.getSelectedIndex()==4)
+                      {
+                          System.out.println("Nivel 5 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(5);
                       }
 
       }
