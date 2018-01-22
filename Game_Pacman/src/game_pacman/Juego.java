@@ -115,7 +115,8 @@ public class Juego {
         //Llamamos a nuestra Clase Tablero 
 
          mat = new int[15][15];
-         mat = Table.tablero(2);
+         
+         mat = Table.tablero(4);
          //matAux = tablero(1);
          matriz = new JLabel[15][15];
          matAux = new int[15][15];
