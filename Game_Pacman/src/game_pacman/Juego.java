@@ -110,6 +110,11 @@ public class Juego {
         comboListar.addItem("Nivel 3");
         comboListar.addItem("Nivel 4");
         comboListar.addItem("Nivel 5");
+        comboListar.addItem("Nivel 6");
+        comboListar.addItem("Nivel 7");
+        comboListar.addItem("Nivel 8");
+        comboListar.addItem("Nivel 9");
+        comboListar.addItem("Nivel 10");
         comboListar.setSize(300, 30);
         comboListar.setLocation(200, 550);
         comboListar.setBackground (Color.BLACK);
@@ -152,6 +157,36 @@ public class Juego {
                           System.out.println("Nivel 5 ");
                           mat = new int[15][15];
                            mat = Table.tablero(5);
+                      }
+                      if(comboListar.getSelectedIndex()==5)
+                      {
+                          System.out.println("Nivel 6 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(6);
+                      }
+                      if(comboListar.getSelectedIndex()==6)
+                      {
+                          System.out.println("Nivel 7 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(7);
+                      }
+                      if(comboListar.getSelectedIndex()==7)
+                      {
+                          System.out.println("Nivel 8 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(8);
+                      }
+                      if(comboListar.getSelectedIndex()==8)
+                      {
+                          System.out.println("Nivel 9 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(9);
+                      }
+                      if(comboListar.getSelectedIndex()==9)
+                      {
+                          System.out.println("Nivel 10 ");
+                          mat = new int[15][15];
+                           mat = Table.tablero(10);
                       }
 
       }
