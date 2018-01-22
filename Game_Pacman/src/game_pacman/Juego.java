@@ -242,6 +242,7 @@ public class Juego {
         panelMenu.setVisible(false);
         panelJuego = new JPanel();
         panelJuego.setLayout(null);
+        panelJuego.setBackground(Color.black);
         panelJuego.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
         panelJuego.setVisible(true);
         
@@ -264,7 +265,7 @@ public class Juego {
         
         nombre = new JLabel("JUGADOR: "+ jugador);
         nombre.setBounds(20, 20, 150, 30);
-        nombre.setForeground(Color.black);
+        nombre.setForeground(Color.white);
         nombre.setVisible(true);
         panelJuego.add(nombre,0);
         
@@ -272,7 +273,7 @@ public class Juego {
         records = new JLabel("Puntos: "+puntos);
         records.setBounds(20, 40, 150, 30);
         records.setVisible(true);
-        records.setForeground(Color.black);
+        records.setForeground(Color.white);
         panelJuego.add(records,0);
         moverPacman();
         fantasma1 = new Fantasmas(12 ,13 ); 
@@ -454,6 +455,7 @@ public class Juego {
         panelPresentacion.setVisible(false);
         panelMenu = new JPanel();
         panelMenu.setLayout(null);
+        panelMenu.setBackground(Color.black);
         panelMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
         panelMenu.setVisible(true);
         
@@ -466,12 +468,16 @@ public class Juego {
         panelMenu.add(fondoMenu,0);
         
         btn1 = new JButton("Jugar");
-        btn1.setBounds(0, 0, 100, 70);
+        btn1.setBounds(400, 50, 300, 30);
+        btn1.setBackground(Color.black);
+        btn1.setForeground(Color.YELLOW);
         btn1.setVisible(true);      
         btn1.addActionListener(new EventoJuego(this));
         
-         btn2 = new JButton("Records");
-        btn2.setBounds(0, 200, 100, 70);
+        btn2 = new JButton("Records");
+        btn2.setBounds(400, 100, 300, 30);
+        btn2.setBackground(Color.black);
+        btn2.setForeground(Color.YELLOW);
         btn2.setVisible(true);     
         btn2.addActionListener(new EventoJuego(this));
         
