@@ -52,10 +52,6 @@ public class Ganaste extends JFrame {
         this.add(panelJuego);
     
         
-   
-        
-        
-        
     }
     
 
