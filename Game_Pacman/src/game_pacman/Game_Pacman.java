@@ -16,8 +16,7 @@ public class Game_Pacman {
      */
     public static void main(String[] args) {
                Juego ob = new Juego();
-               
-             
+      
     }
     
 }

@@ -110,35 +110,13 @@ public class CrearUnTablero extends JFrame implements ActionListener
        this.getContentPane().add(Tablero);
        
         this.setVisible(true);
+        
     }   
 
  @Override
     public void actionPerformed(ActionEvent e) 
     {  
             Res = Mat1.getText()+Mat2.getText()+Mat3.getText()+Mat4.getText()+Mat5.getText()+Mat6.getText()+Mat7.getText()+Mat8.getText()+Mat9.getText()+Mat10.getText()+Mat11.getText()+Mat12.getText()+Mat13.getText()+Mat14.getText()+Mat15.getText();
-       int cont=0;
-         aux = new int[15][15];
-        for (int i =0 ; i<aux.length ; i++)
-        {
-            for (int j =0 ; j<aux.length ; j++)
-        {
-           // aux[i][j]=Res.charAt((int)cont);
-              aux[i][j]=Integer.parseInt(Character.toString(Res.charAt(cont)));
-            cont++;
-        }
-            
-        }
-        
-        for (int i =0 ; i<aux.length ; i++)
-        {
-            for (int j =0 ; j<aux.length ; j++)
-        {
-            System.out.print(aux[i][j]+",");
-        }
-            System.out.println(" ");
-            
-        }
-       
     }
 
     public int[][] getAux() {

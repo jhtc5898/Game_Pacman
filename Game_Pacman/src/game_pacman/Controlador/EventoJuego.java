@@ -47,7 +47,17 @@ private Juego juego;
         }
           if (e.getSource().equals(juego.getIniciar()))
           {
-               juego.menu();
+               /*  System.out.println("jugar");
+                 //pedir nombre
+              String jugador = JOptionPane.showInputDialog(null, "Nombre del jugador", "Escribe aqui" );     
+               if (jugador.equals("Escribe aqui")|| jugador.equals(""))
+               {
+                 jugador= "null"  ;
+               }*/
+              
+                juego.menu();
+                
+                 //juego.jugar(jugador);
           }   
     
 }

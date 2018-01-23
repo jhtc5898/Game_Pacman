@@ -5,10 +5,14 @@
  */
 package game_pacman;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
- * @author johne
+ * @author USUARIO
  */
-public class Mapa {
+public class Perdiste extends JInternalFrame{
+    
+    
     
 }

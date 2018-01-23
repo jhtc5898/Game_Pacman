@@ -12,6 +12,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -69,6 +72,8 @@ public class Juego {
     //ComboBox
     JComboBox comboListar;
     int nivel;
+       
+
   
     
     
@@ -189,6 +194,8 @@ public class Juego {
                           mat = new int[15][15];
                            mat = Table.tablero(10);
                       }
+                       
+                      
 
       }
 
@@ -365,6 +372,8 @@ public class Juego {
                     panelJuego.setVisible(false);
                     panelMenu.setVisible(true);
                     timer.stop();
+                    Ganaste Gn = new Ganaste();
+                    Gn.setVisible(true);
                     
                 }
                       
@@ -377,13 +386,16 @@ public class Juego {
                     
                 // pintarMatriz();
            
-                    JOptionPane.showMessageDialog(ventana, "ESTAS MUERTO ");
+                   //JOptionPane.showMessageDialog(ventana, "ESTAS MUERTO ");
                    panelJuego.setVisible(false);
-                    //panelMenu.setVisible(true);
-                   
+                        
                 timer.stop();
+                GameOver g = new GameOver() ; 
+
+                         g.setVisible(true);
+              
             
-                Juego J = new Juego ();
+               // Juego J = new Juego ();
                 
                // jugar();
                 

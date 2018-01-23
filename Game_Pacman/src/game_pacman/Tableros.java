@@ -220,7 +220,16 @@ public class Tableros
                   };
              return aux;
         }
+         
+        
 
         return aux1;
     }
+
+   
+
+
+    
+  
+     
 }
