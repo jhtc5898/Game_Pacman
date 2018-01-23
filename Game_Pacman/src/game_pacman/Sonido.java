@@ -15,7 +15,8 @@ import javax.swing.JInternalFrame;
  */
 public class Sonido {
     
-    public static final AudioClip inicio = Applet.newAudioClip(Sonido.class.getResource("/Inicio.wav"));
+    public static final AudioClip Inicio = Applet.newAudioClip(Sonido.class.getResource("/Inicio.wav"));
     public static final AudioClip Fondo = Applet.newAudioClip(Sonido.class.getResource("/Fondo.wav"));
-   // public static final AudioClip perder = Applet.newAudioClip(Sonido.class.getResource("/Sonidos_Pacman.mp3"));
+    public static final AudioClip Movimiento = Applet.newAudioClip(Sonido.class.getResource("/Movimiento.wav"));
+    public static final AudioClip Muerte = Applet.newAudioClip(Sonido.class.getResource("/muerte.wav"));
 }

@@ -56,6 +56,7 @@ private Juego juego;
                }*/
               
                 juego.menu();
+               //  juego.jugar("");
                 
                  //juego.jugar(jugador);
           }   

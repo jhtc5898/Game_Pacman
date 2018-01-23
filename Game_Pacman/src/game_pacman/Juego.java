@@ -92,7 +92,7 @@ public class Juego {
         imagenFondoPres = new ImageIcon(imagenFondoPres.getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT));
         fondoPresentacion.setIcon(imagenFondoPres);
         fondoPresentacion.setVisible(true);
-        Sonido.inicio.play();//llama al sonido en este caso solo suena en la panatalla principal
+        Sonido.Inicio.play();//llama al sonido en este caso solo suena en la panatalla principal
         panelPresentacion.add(fondoPresentacion, 0);
 
         iniciar = new JButton("Iniciar");
@@ -138,47 +138,56 @@ public class Juego {
                 if (comboListar.getSelectedIndex() == 1) {
                     System.out.println("Nivel 2");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(2);
 
                 }
                 if (comboListar.getSelectedIndex() == 2) {
                     System.out.println("Nivel 3 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(3);
                 }
                 if (comboListar.getSelectedIndex() == 3) {
                     System.out.println("Nivel 4 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(4);
                 }
                 if (comboListar.getSelectedIndex() == 4) {
                     System.out.println("Nivel 5 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(5);
                 }
                 if (comboListar.getSelectedIndex() == 5) {
                     System.out.println("Nivel 6 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(6);
                 }
                 if (comboListar.getSelectedIndex() == 6) {
                     System.out.println("Nivel 7 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(7);
                 }
                 if (comboListar.getSelectedIndex() == 7) {
                     System.out.println("Nivel 8 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(8);
                 }
                 if (comboListar.getSelectedIndex() == 8) {
                     System.out.println("Nivel 9 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(9);
                 }
                 if (comboListar.getSelectedIndex() == 9) {
                     System.out.println("Nivel 10 ");
                     mat = new int[15][15];
+                    Sonido.Fondo.loop();
                     mat = Table.tablero(10);
                 }
 
@@ -278,8 +287,10 @@ public class Juego {
 
         timer = new Timer(1, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                
                 if (arriba == 1 && (mat[px][py - 1] == 1 || mat[px][py - 1] == 0)) {
                     if (mat[px][py - 1] == 1) {
+                        Sonido.Movimiento.play();//sonido cuando come
                         puntos = puntos + 10;
                         records.setText("Puntos: " + puntos);
                     }
@@ -293,6 +304,7 @@ public class Juego {
                 }
                 if (abajo == 1 && (mat[px][py + 1] == 1 || mat[px][py + 1] == 0)) {
                     if (mat[px][py + 1] == 1) {
+                        Sonido.Movimiento.play();
                         puntos = puntos + 5;
                         records.setText("Puntos: " + puntos);
                     }
@@ -306,6 +318,7 @@ public class Juego {
                 }
                 if (izq == 1 && (mat[px - 1][py] == 1 || mat[px - 1][py] == 0)) {
                     if (mat[px - 1][py] == 1) {
+                        Sonido.Movimiento.play();
                         puntos = puntos + 5;
                         records.setText("Puntos: " + puntos);
                     }
@@ -319,6 +332,7 @@ public class Juego {
                 }
                 if (der == 1 && (mat[px + 1][py] == 1 || mat[px + 1][py] == 0)) {
                     if (mat[px + 1][py] == 1) {
+                        Sonido.Movimiento.play();
                         puntos = puntos + 5;
                         records.setText("Puntos: " + puntos);
                     }
@@ -350,6 +364,8 @@ public class Juego {
 
                 //matar pacman
                 if (mat[px][py + 1] == 7 || mat[px][py - 1] == 7 || mat[px - 1][py] == 7 || mat[px + 1][py] == 7) {
+                    Sonido.Fondo.stop();
+                    Sonido.Muerte.play();//sonido cuando muere
                     fantasma1.timer.stop();
                     fantasma2.timer.stop();
                     fantasma3.timer.stop();
