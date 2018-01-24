@@ -32,7 +32,7 @@ public class Fantasmas {
     
     public void MovimientoFantasma(){
     
-        timer = new Timer (50, new ActionListener () 
+        timer = new Timer (700, new ActionListener () 
         { 
             public void actionPerformed(ActionEvent e) 
             { 
