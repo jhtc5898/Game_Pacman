@@ -270,7 +270,7 @@ public class VentanaJuego {
     public void moverPacman() // Metodo para el movimiento del pacman 
     {
 
-        timer = new Timer(1, new ActionListener() // Timer para el movimiento del pacman duarnte la partida (Timer es un bucle pero nosotros podemos hacer cada cuanto queremos que se repita )
+        timer = new Timer(50, new ActionListener() // Timer para el movimiento del pacman duarnte la partida (Timer es un bucle pero nosotros podemos hacer cada cuanto queremos que se repita )
         {
             public void actionPerformed(ActionEvent e) {
                 
