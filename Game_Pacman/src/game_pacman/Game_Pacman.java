@@ -5,6 +5,9 @@
  */
 package game_pacman;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author johne
@@ -15,7 +18,10 @@ public class Game_Pacman {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-               Juego ob = new Juego();
+             // BaseDatos bD = new BaseDatos();
+              //List<Jugador> jugador = new ArrayList<Jugador>();
+              
+       VentanaJuego ob = new VentanaJuego();//Lamado a la VentanaJuego 
       
     }
     

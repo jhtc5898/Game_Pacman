@@ -5,7 +5,8 @@
  */
 package game_pacman.Controlador;
 
-import game_pacman.Juego;
+import game_pacman.VentanaJuego;
+import game_pacman.VentanaControles;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -18,9 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class EventoJuego implements ActionListener 
 {
-private Juego juego;
+private VentanaJuego juego;
 
-    public EventoJuego(Juego juego) {
+    public EventoJuego(VentanaJuego juego) {
         this.juego = juego;
     }
 
@@ -36,14 +37,14 @@ private Juego juego;
                {
                  jugador= "null"  ;
                }
-              
-                
                  juego.jugar(jugador);
                  
         }
           if (e.getSource().equals(juego.getBtn2()))
         {
-            System.err.println("Records");
+            System.err.println("Controles");
+            VentanaControles Vt = new VentanaControles();
+      Vt.setVisible(true);
         }
           if (e.getSource().equals(juego.getIniciar()))
           {

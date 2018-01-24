@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package game_pacman;
 
-import static game_pacman.Juego.panelJuego;
+import static game_pacman.VentanaJuego.panelJuego;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -14,22 +9,27 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  *
  * @author johne
  */
-public class Ganaste extends JFrame {
+public class VentanaControles extends JFrame {
 
     private ImageIcon imagenFondoPres;
     private JLabel eti;
     private JPanel panel;
     private JScrollPane scroll;
 
-    public Ganaste() {
-        super("You Win");
+    public VentanaControles() {
+        super("Controles");
         this.setSize(700, 700);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(3);
         this.iniciaComponente();
     }
 
@@ -42,8 +42,8 @@ public class Ganaste extends JFrame {
         panelJuego.setVisible(true);
         
         eti = new JLabel();
-        eti.setBounds(0, -20, this.getWidth(), this.getHeight());
-        imagenFondoPres = new ImageIcon("imagenes/YouWin.gif");
+        eti.setBounds(0, 0, this.getWidth(), this.getHeight());
+        imagenFondoPres = new ImageIcon("imagenes/Controles.png");
         imagenFondoPres = new ImageIcon(imagenFondoPres.getImage().getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_DEFAULT));
         eti.setIcon(imagenFondoPres);
         eti.setVisible(true);
@@ -51,6 +51,10 @@ public class Ganaste extends JFrame {
         
         this.add(panelJuego);
     
+        
+   
+        
+        
         
     }
     

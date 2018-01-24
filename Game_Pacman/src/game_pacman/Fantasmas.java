@@ -1,6 +1,7 @@
 
 package game_pacman;
 
+import game_pacman.VentanaJuego;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -16,7 +17,7 @@ public class Fantasmas {
     int direccion;
     int mx;
     int my;
-    Juego Juego;
+    VentanaJuego Juego;
     
     public Fantasmas( int x, int y ){
         aleatorio = new Random();
